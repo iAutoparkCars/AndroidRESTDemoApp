@@ -3,14 +3,16 @@ package com.mobile.buttonusertransfer.viewmodels;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.databinding.BindingAdapter;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.mobile.buttonusertransfer.CreateUserActivity;
-import com.mobile.buttonusertransfer.data.model.Post;
-import com.mobile.buttonusertransfer.databinding.ActivityCreateUserBinding;
+import com.mobile.buttonusertransfer.data.model.User;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -19,9 +21,13 @@ import com.mobile.buttonusertransfer.databinding.ActivityCreateUserBinding;
 
 public class CreateUserViewModel {
 
+    final String TAG = getClass().getSimpleName();
+
     public void onCreateUser(View view, String name, String email){
         CreateUserActivity activity = (CreateUserActivity) getActivity(view);
-        activity.createUser(new Post(name, email, activity.candidateKey));
+
+
+        activity.createUser(new User(name, email, activity.getCandidateKey()));
         Log.i("createviewModel", "clicked name: " + name + " email: " + email);
     }
 
@@ -35,4 +41,30 @@ public class CreateUserViewModel {
         }
         return null;
     }
+
+    public void createUser(final CreateUserActivity activity, User model){
+        activity.mAPIService.postCreateUser(model).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+
+                if (response.isSuccessful()){
+                    Toast.makeText(activity, "Success. Response: " + response.body().toString(), Toast.LENGTH_LONG).show();
+                    //Log.d(TAG, response.body().toString());
+                } else{     // non-unique email, invalid ID, etc.
+                    Log.d(TAG, "Response wasn't successful");
+                    Log.d(TAG, response.code() + "");
+                    Log.d(TAG, response.message().toString());
+                    Log.d(TAG, call.request().url().toString());
+                    Toast.makeText(activity, "Unsuccessful. Email may already exist.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e(TAG, "Unable to POST to API");
+                Log.e(TAG, t.toString());
+            }
+        });
+    }
+
 }

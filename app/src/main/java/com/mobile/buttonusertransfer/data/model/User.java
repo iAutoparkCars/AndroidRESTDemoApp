@@ -11,7 +11,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.mobile.buttonusertransfer.BR;
 
-public class Post extends BaseObservable{
+public class User extends BaseObservable{
 
     @SerializedName("id")
     @Expose
@@ -28,6 +28,8 @@ public class Post extends BaseObservable{
     @SerializedName("candidate")
     @Expose
     private String candidate;
+
+    int balance;
 
     public Integer getId() {
         return id;
@@ -65,17 +67,17 @@ public class Post extends BaseObservable{
         this.candidate = candidate;
     }
 
-    public Post(String name, String email, String candidate){
+    public User(String name, String email, String candidate){
         this.name = name;
         this.email = email;
         this.candidate = candidate;
     }
 
-    public Post(){}
+    public User(){}
 
     @Override
     public String toString() {
-        return "Post{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

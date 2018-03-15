@@ -8,7 +8,7 @@
     <data>
         <variable
             name="user"
-            type="com.mobile.buttonusertransfer.data.model.Post" />
+            type="com.mobile.buttonusertransfer.data.model.User" />
         <variable name="createUserViewModel" type="com.mobile.buttonusertransfer.viewmodels.CreateUserViewModel" />
     </data>
 

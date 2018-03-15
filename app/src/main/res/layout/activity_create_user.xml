@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.mobile.buttonusertransfer.data.model.Post" />
+        <variable name="createUserViewModel" type="com.mobile.buttonusertransfer.viewmodels.CreateUserViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.mobile.buttonusertransfer.CreateUserActivity"
+        >
+
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="262dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="48dp"
+            android:hint="ENTER NAME"
+            android:inputType="textCapWords"
+            android:singleLine="true"
+            app:layout_constraintBottom_toTopOf="@+id/userEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.901"
+
+            android:text="@={user.name}"
+            />
+
+        <EditText
+            android:id="@+id/userEmail"
+            android:layout_width="262dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="280dp"
+            android:hint="ENTER EMAIL"
+            android:inputType="textCapWords"
+            android:singleLine="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:text="@={user.email}"
+            />
+
+
+        <ImageButton
+            android:id="@+id/createUserButton"
+            android:layout_width="78dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="236dp"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/add_user"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userEmail"
+            android:clickable="true"
+            android:focusable="true"
+
+            android:onClick="@{()->createUserViewModel.onCreateUser(constraintRoot, user.name, user.email)}"
+            />
+        <!--  android:onClick="@{createUserViewModel.createUser()}"-->
+
+        <ImageButton
+            android:id="@+id/viewUsersButton"
+            android:layout_width="59dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="141dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/view_users"
+            android:text="View Users"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/createUserButton"
+            android:clickable="true"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="44dp"
+            android:alpha=".15"
+            android:src="@drawable/button_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+</layout>

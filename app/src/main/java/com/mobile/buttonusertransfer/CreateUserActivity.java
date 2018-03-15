@@ -50,29 +50,7 @@ public class CreateUserActivity extends AppCompatActivity {
         viewAllUsers();
     }
 
-    public void createUser(String name, String email, String candidate){
-        mAPIService.postCreateUser(name, email, candidate).enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-
-                if (response.isSuccessful()){
-                    Log.d(TAG, response.body().toString());
-                } else{     // non-unique email, invalid ID, etc.
-                    Log.d(TAG, "Response wasn't successful");
-                    Log.d(TAG, response.code() + "");
-                    Log.d(TAG, response.message().toString());
-                    Log.d(TAG, call.request().url().toString());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Log.e(TAG, "Unable to POST to API");
-                Log.e(TAG, t.toString());
-            }
-        });
-    }
-
+   /* // sample function to call API that was moved from here to ViewModel
     public void createUser(User model){
         mAPIService.postCreateUser(model).enqueue(new Callback<User>() {
             @Override
@@ -96,7 +74,7 @@ public class CreateUserActivity extends AppCompatActivity {
                 Log.e(TAG, t.toString());
             }
         });
-    }
+    }*/
 
     public void viewAllUsers(){
         mAPIService.getAllUsers(candidateKey).enqueue(new Callback<List<User>>() {

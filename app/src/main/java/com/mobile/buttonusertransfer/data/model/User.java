@@ -1,7 +1,7 @@
 package com.mobile.buttonusertransfer.data.model;
 
 /**
- * Created by Steven on 3/12/2018.
+ * Created by Steven on 3/13/2018.
  */
 
 import android.databinding.BaseObservable;

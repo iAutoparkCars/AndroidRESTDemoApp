@@ -28,21 +28,14 @@ public class CreateUserViewModel {
 
     public void onCreateUser(View view, String name, String email){
         CreateUserActivity activity = (CreateUserActivity) getActivity(view);
-
         createUser(activity, new User(name, email, candidateKey));
         //activity.createUser(new User(name, email, activity.getCandidateKey()));
         Log.i("createviewModel", "clicked name: " + name + " email: " + email);
     }
 
-    public Activity getActivity(View view) {
-        Context context = view.getContext();
-        while (context instanceof ContextWrapper) {
-            if (context instanceof Activity) {
-                return (Activity)context;
-            }
-            context = ((ContextWrapper)context).getBaseContext();
-        }
-        return null;
+    public void onViewUsers(View view){
+        CreateUserActivity activity = (CreateUserActivity) getActivity(view);
+        viewAllUsers(activity);
     }
 
     public void createUser(final CreateUserActivity activity, User model){
@@ -97,4 +90,14 @@ public class CreateUserViewModel {
 
     }
 
+    public Activity getActivity(View view) {
+        Context context = view.getContext();
+        while (context instanceof ContextWrapper) {
+            if (context instanceof Activity) {
+                return (Activity)context;
+            }
+            context = ((ContextWrapper)context).getBaseContext();
+        }
+        return null;
+    }
 }

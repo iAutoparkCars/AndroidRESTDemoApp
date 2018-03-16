@@ -47,7 +47,7 @@ public class CreateUserActivity extends AppCompatActivity {
         binding.setCreateUserViewModel(new CreateUserViewModel());
 
         mAPIService = ApiUtils.getAPIService();
-        viewAllUsers();
+        //viewAllUsers();
     }
 
    /* // sample function to call API that was moved from here to ViewModel

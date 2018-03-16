@@ -11,7 +11,8 @@ import com.mobile.buttonusertransfer.data.model.User;
 import com.mobile.buttonusertransfer.data.remote.APIService;
 import com.mobile.buttonusertransfer.data.remote.ApiUtils;
 import com.mobile.buttonusertransfer.databinding.ActivityCreateUserBinding;
-import com.mobile.buttonusertransfer.viewmodels.CreateUserViewModel;
+import com.mobile.buttonusertransfer.view.ListFragment;
+import com.mobile.buttonusertransfer.viewmodel.CreateUserViewModel;
 
 import java.util.List;
 
@@ -29,8 +30,18 @@ public class CreateUserActivity extends AppCompatActivity {
     }
 
     public APIService mAPIService;
-
     public ActivityCreateUserBinding binding;
+
+    public ListFragment getUserlistFragment() {
+        if (userlistFragment == null){
+            userlistFragment = new ListFragment();
+            return userlistFragment;
+        }
+        return userlistFragment;
+    }
+
+    private ListFragment userlistFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +58,9 @@ public class CreateUserActivity extends AppCompatActivity {
         binding.setCreateUserViewModel(new CreateUserViewModel());
 
         mAPIService = ApiUtils.getAPIService();
-        //viewAllUsers();
+
+        // init list fragment to view users
+        userlistFragment = getUserlistFragment();
     }
 
    /* // sample function to call API that was moved from here to ViewModel

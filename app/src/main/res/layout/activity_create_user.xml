@@ -3,13 +3,14 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <data>
         <variable
             name="user"
             type="com.mobile.buttonusertransfer.data.model.User" />
-        <variable name="createUserViewModel" type="com.mobile.buttonusertransfer.viewmodels.CreateUserViewModel" />
+        <variable name="createUserViewModel" type="com.mobile.buttonusertransfer.viewmodel.CreateUserViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout

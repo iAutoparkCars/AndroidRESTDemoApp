@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ButtonUserTransfer</string>
+
+    // credentials
+    <string name="nonUniqueEmail">Unsuccessful. Email already exists</string>
+    <string name="invalidCreds">Invalid name or email</string>
+
+    // networking
+    <string name="networkingError">Network Error</string>
+    <string name="responseSuccess">Success. Response: </string>
 </resources>

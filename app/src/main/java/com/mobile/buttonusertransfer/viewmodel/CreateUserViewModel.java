@@ -66,9 +66,8 @@ public class CreateUserViewModel {
      */
     public void createUser(final CreateUserActivity activity, User model){
 
-        if (model.getName() == null || model.getEmail() == null ||
-                model.getName().length() <= 1 || model.getEmail().length() <= 1){
-            Toast.makeText(activity, "Name or email is empty", Toast.LENGTH_SHORT).show();
+        if (!model.hasValidEmail() || !model.hasValidName()){
+            Toast.makeText(activity, activity.getString(R.string.invalidCreds), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -77,20 +76,20 @@ public class CreateUserViewModel {
             public void onResponse(Call<User> call, Response<User> response) {
 
                 if (response.isSuccessful()){
-                    Toast.makeText(activity, "Success. Response: " + response.body().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity, activity.getString(R.string.responseSuccess) + response.body().toString(), Toast.LENGTH_LONG).show();
                     //Log.d(TAG, response.body().toString());
                 } else{     // non-unique email, invalid ID, etc.
                     Log.d(TAG, "Response wasn't successful");
                     Log.d(TAG, response.code() + "");
                     Log.d(TAG, response.message().toString());
                     Log.d(TAG, call.request().url().toString());
-                    Toast.makeText(activity, "Unsuccessful. Email may already exist.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, activity.getString(R.string.nonUniqueEmail), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Log.e(TAG, "Unable to POST to API");
+                Log.e(TAG, activity.getString(R.string.networkingError));
                 Log.e(TAG, t.toString());
             }
         });

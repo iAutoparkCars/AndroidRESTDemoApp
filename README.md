@@ -3,9 +3,14 @@
  * Create a user with a RESTful API
  * View all current users with a RESTful API
 
+
 ### Build instructions
 ------
-* Android Studio
+* use Android Studio to build & run
+
+### Demo of Functionality
+* Handles errors of empty and/or duplicate emails
+* Viewing the list of users, create a user, and see the updated list with newly created user
 
 ### Technology Used
 ------
@@ -15,6 +20,7 @@
 * *Data Binding* to bind Java object data to the UI, or vice versa (user inputs data into POJO)
 * *Constraint Layout* to reliably and efficiently create custom layouts with many child views
 * *RecyclerView* to view data as a list
+* *Postman* to play around with the RESTful API and check validity of networking calls
 
 ### Things to note
 ------
@@ -26,6 +32,6 @@
 
 ### Assumptions
 ------
-* UI/unit tests/frameworks need not be needed
+* UI/unit tests/frameworks not needed, usability testing done instead.
 * Emphasis on funcitonality, organization, modify-ability, and documentation -- not on design
   For a project with high emphasis on custom design, please see 

@@ -88,9 +88,25 @@ public class CreateUserViewModel {
                     // starting the fragment here...unless i want to use an interface
                     // for "callback", eventbus, or observable pattern with rxjava
 
-                    //
-                    FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.constraint_root, activity.getUserlistFragment());
+                    // add Users to the list
+                    activity.getUserlistFragment().addItems(users);
+
+                    FragmentManager manager = activity.getSupportFragmentManager();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                        //transaction.add(R.id.constraint_root, activity.getUserlistFragment(), "View-User-Fragment");
+                        transaction.replace(R.id.constraint_root, activity.getUserlistFragment());
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+
+                    //FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+                    //transaction.replace(R.id.constraint_root, activity.getUserlistFragment()).commit();
+
+                    /*FragmentManager manager = getFragmentManager();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.add(R.id.container,YOUR_FRAGMENT_NAME,YOUR_FRAGMENT_STRING_TAG);
+                    transaction.addToBackStack(null);
+                    transaction.commit();*/
+
                     Log.d(TAG, users + "");
 
                 } else{     // non-unique email, invalid ID, etc.

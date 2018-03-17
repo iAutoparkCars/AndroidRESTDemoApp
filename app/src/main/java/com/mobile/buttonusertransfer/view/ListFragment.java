@@ -6,6 +6,7 @@ package com.mobile.buttonusertransfer.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -34,13 +35,11 @@ public class ListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adapter = getAdapter();
-
     }
 
     @Override
     public void onResume(){
         super.onResume();
-
     }
 
     @Override
@@ -49,46 +48,37 @@ public class ListFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-  /*          // Inflate the list layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_vid_list, container, false);
-        recView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view);
-
+        // Inflate the list layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_view_users_list, container, false);
+        recView = rootView.findViewById(R.id.rv_recycler_view);
         recView.setHasFixedSize(true);
 
-            // using an ArrayList for better performance since I will be adding often
-
-        //adapter = new VidListAdapter();
+        // link the adapter to this fragment
         recView.setAdapter(getAdapter());
-
         getAdapter().notifyDataSetChanged();
 
+        // set layout manager
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recView.setLayoutManager(llm);
 
-            // infinite scrolling here
-        setInfiniteScrolling(llm);
+        // add dividers between each cell
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recView.getContext(), llm.getOrientation());
+        recView.addItemDecoration(dividerItemDecoration);
 
-        return rootView;*/
-        return null;
+        return rootView;
     }
 
-
-        // add items to adapter here, then call adapter.notifyItemRangeInserted
-    public void addItems(List<User> videos){
+    // add items to the list
+    public void addItems(List<User> users){
 
         int oldSize = getAdapter().getItemCount();
-        int itemCount = videos.size();
+        int itemCount = users.size();
 
-        Log.d(TAG, "Before add, data size: " + oldSize);
-
-        for (User vid : videos){
-            //getAdapter().addItem(new VideoItem(vid));
+        for (User vid : users){
+            getAdapter().addItem(vid);
         }
-
-        Log.d(TAG, "AFTER add, data size: " + getAdapter().getItemCount());
 
         //getAdapter().addItem(item);
         //getAdapter().notifyDataSetChanged();

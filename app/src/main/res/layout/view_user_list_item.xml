@@ -5,20 +5,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-    <data >
-
+    <data>
+        <variable
+            name="user"
+            type="com.mobile.buttonusertransfer.data.model.User"/>
     </data>
-    <!--<variable
-        name="collection"
-        type="com.mobile.songlist.viewmodels.Track"/>-->
 
     <RelativeLayout
         android:id="@+id/list_item_root"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:clickable="true"
-        android:onClick="@{() -> cell.onTrackViewClick()}"
-
         >
 
         <TextView
@@ -32,7 +29,7 @@
             android:ellipsize="end"
             android:fontFamily="sans-serif"
             android:maxLines="1"
-            android:text="id"
+            android:text="@{Integer.toString(user.id)}"
             android:textSize="18dp"
             android:textStyle="normal"/>
 
@@ -44,12 +41,12 @@
 
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="29dp"
-            android:layout_marginStart="23dp"
+            android:layout_marginStart="53dp"
             android:layout_toEndOf="@+id/user_list_id"
             android:ellipsize="end"
             android:fontFamily="sans-serif"
             android:maxLines="1"
-            android:text="name"
+            android:text="@{user.name}"
             android:textSize="18dp"
             android:textStyle="normal"/>
         <!--android:text="@{track.trackName}"-->
@@ -58,15 +55,14 @@
             android:id="@+id/user_list_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_above="@+id/user_list_name"
-            android:layout_marginStart="26dp"
+            android:layout_marginStart="53dp"
             android:layout_toEndOf="@+id/user_list_id"
             android:ellipsize="end"
             android:fontFamily="sans-serif-light"
             android:maxLines="2"
             android:paddingTop="8dp"
-            android:text="email"
+            android:text="@{user.email}"
             android:textSize="15dp"
             android:textStyle="italic"/>
 

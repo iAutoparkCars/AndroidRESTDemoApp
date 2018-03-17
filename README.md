@@ -34,4 +34,4 @@
 ------
 * UI/unit tests/frameworks not needed, usability testing done instead.
 * Emphasis on funcitonality, organization, modify-ability, and documentation -- not on design
-  For a project with high emphasis on custom design, please see 
+  For a project with high emphasis on custom design, please see [this repository instead](https://github.com/iAutoparkCars/StaffPickVideos/blob/master/README.md)

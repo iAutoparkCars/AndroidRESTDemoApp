@@ -9,9 +9,13 @@
 * use Android Studio to build & run
 
 ### Demo of Functionality
-* Handles errors of empty and/or duplicate emails
-* Viewing the list of users, create a user, and see the updated list with newly created user
+* Handles errors of empty and/or duplicate emails with `@Bindable` and 
+  Network Response (non-unique email response)
+  > ![error checking regifed](https://user-images.githubusercontent.com/14288932/37560085-31b9efd6-2a08-11e8-9fa9-a53ff215cf24.gif)
 
+* Viewing the list of users, create a user, and see the updated list with newly created user
+  > ![creating viewing gif](https://user-images.githubusercontent.com/14288932/37560073-d990b97a-2a07-11e8-9dea-bb88a7e47556.gif)
+  
 ### Technology Used
 ------
 > 1. *Retrofit2* for networking

@@ -1,14 +1,22 @@
-Networking with Retrofit2
-MVVM design pattern
-data binding
-ConstraintLayouts for the UI
-RecyclerView for the list views
-jsonschema2pojo
+## Functionality
+ * Create a user with a RESTful API
+ * View all current users with a RESTful API
 
-* The "MainActivity" is the CreateUserActivity
-* All the UI logic of the CreateUserActivity is in CreateUserViewModel;
-  the MVVM design allows the separation of view and viewmodel for
-  decoupling, testing, modify-ability, and thus scalability.
+## Build instructions
+* Android Studio
+
+## Technology Used
+* *Retrofit2* for networking
+* *jsonschema2pojo* to quickly build a Java class to model a JSON schema
+* *MVVM* for design pattern, separation of logic, testability
+* *Data Binding* to bind Java object data to the UI, or vice versa (user inputs data into POJO)
+* *Constraint Layout* to reliably and efficiently create custom layouts with many child views
+* *RecyclerView* to view data as a list
+
+## Things to note
+* The *MainActivity* is the `CreateUserActivity.java`
+* All the UI logic of the `CreateUserActivity.java` is in the `CreateUserViewModel.java`;
+  the MVVM design allows the separation of view and viewmodel
 * The code is roughly well-documented for ease of understanding.
-  One should not struggle to read teammate's code.
+  One should not struggle to read a teammate's code.
 

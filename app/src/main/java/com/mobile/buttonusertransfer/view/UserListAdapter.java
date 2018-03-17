@@ -17,7 +17,7 @@ import com.mobile.buttonusertransfer.databinding.ViewUserListItemBinding;
 import java.util.LinkedList;
 import java.util.List;
 
-public class VidListAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class UserListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private String TAG = getClass().getName();
     private List<User> mDataset;
@@ -26,36 +26,25 @@ public class VidListAdapter extends RecyclerView.Adapter<ViewHolder> {
     private Context context;
     public String name;
 
-    public VidListAdapter(List<User> myDataset) {}
-    public VidListAdapter(){
+    public UserListAdapter(){
         mDataset = new LinkedList<User>();
     }
 
-    ViewUserListItemBinding cardBinding;
-
-    // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            // inflate a new view
-        /*if (inflater == null) {
-            context = parent.getContext();
-            inflater = LayoutInflater.from(context);
-        }*/
 
+        // inflate a new view for data binding
         context = parent.getContext();
         inflater = LayoutInflater.from(context);
-
         ViewUserListItemBinding viewBinding = DataBindingUtil.inflate(inflater, R.layout.view_user_list_item, parent, false);
-        //ViewUserListItemBinding viewBinding = DataBindingUtil.inflate(inflater, R.layout.view_video_card, parent,false);
 
-        // pass viewBinding into
+        // pass viewBinding into each item of the list
         return new ViewHolder(viewBinding, parent);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        ViewUserListItemBinding binding = holder.cardBinding;
-
+        // one-way binding from POJO -> layout
         User vidItem = mDataset.get(position);
         holder.bind(vidItem, this.context);
     }
@@ -65,19 +54,9 @@ public class VidListAdapter extends RecyclerView.Adapter<ViewHolder> {
         return mDataset.size();
     }
 
-    // -- Override getItemId, getItemViewType to prevent repeated cards on scroll --
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return position;
-    }
-
     public void addItems(List<User> list){
 
+        mDataset.clear();
         if (mDataset == null)
             mDataset = new LinkedList<>();
 
@@ -85,16 +64,4 @@ public class VidListAdapter extends RecyclerView.Adapter<ViewHolder> {
             mDataset.add(item);
         }
     }
-
-    public void addItem(User vid){
-
-        mDataset.add(vid);
-        //this.notifyDataSetChanged();
-
-        //Log.d(TAG, "MainActivity tried to add item to list");
-
-    }
-
-
-
 }

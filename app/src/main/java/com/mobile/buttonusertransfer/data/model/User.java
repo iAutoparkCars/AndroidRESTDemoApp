@@ -11,6 +11,13 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.mobile.buttonusertransfer.BR;
 
+/*
+    This User class is
+        1. used to build the JSON request body for GET and POST
+        2. parse the data from the JSON response body for GET
+        3. data-bind (one-way) POJO  -> UI in the recycler view
+        4. data-bind (two-way) POJO <-> UI when the user enters email/name, POJO is reactively updated
+*/
 public class User extends BaseObservable{
 
     @SerializedName("id")

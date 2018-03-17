@@ -14,8 +14,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     private String TAG = getClass().getSimpleName();
     public ViewUserListItemBinding cardBinding;
-    public int containerId = 0;
-    //public CardView cardView;
 
     public ViewHolder(ViewUserListItemBinding dataBinding, View v) {
         super(dataBinding.getRoot());
@@ -24,15 +22,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     public void ViewHolder() {}
 
-    public void bind (User model, Context context)
-    {
-        this.cardBinding.setUser(model);
-        //this.cardBinding.setVideoItem(model);
-
-        // call this to bind the ViewModel to this item in RecView (the ViewHolder)
-        //this.cardBinding.setItemViewModel(new ListItemViewModel(model, context));
-    }
+    // bind the POJO User to the data in the UI
+    public void bind (User model, Context context) { this.cardBinding.setUser(model); }
 
     public ViewUserListItemBinding getBinding() { return this.cardBinding; }
-
 }

@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +26,7 @@ public class ListFragment extends Fragment {
 
     private RecyclerView recView;
 
-    VidListAdapter adapter;
+    UserListAdapter adapter;
 
     public ListFragment(){}
 
@@ -73,22 +72,15 @@ public class ListFragment extends Fragment {
     // add items to the list
     public void addItems(List<User> users){
 
-        int oldSize = getAdapter().getItemCount();
-        int itemCount = users.size();
-
-        for (User vid : users){
-            getAdapter().addItem(vid);
-        }
+        getAdapter().addItems(users);
 
         //getAdapter().addItem(item);
-        //getAdapter().notifyDataSetChanged();
-
-        getAdapter().notifyItemRangeInserted(oldSize, itemCount);
+        getAdapter().notifyDataSetChanged();
     }
 
-    public VidListAdapter getAdapter(){
+    public UserListAdapter getAdapter(){
         if (adapter == null)
-            adapter = new VidListAdapter();
+            adapter = new UserListAdapter();
         return adapter;
     }
 }

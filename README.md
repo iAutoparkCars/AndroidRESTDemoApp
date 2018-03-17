@@ -14,13 +14,13 @@
 
 ### Technology Used
 ------
-* *Retrofit2* for networking
-* *jsonschema2pojo* to quickly build a Java class to model a JSON schema
-* *MVVM* for design pattern, separation of logic, testability
-* *Data Binding* to bind Java object data to the UI, or vice versa (user inputs data into POJO)
-* *Constraint Layout* to reliably and efficiently create custom layouts with many child views
-* *RecyclerView* to view data as a list
-* *Postman* to play around with the RESTful API and check validity of networking calls
+> 1. *Retrofit2* for networking
+> 2. *jsonschema2pojo* to quickly build a Java class to model a JSON schema
+> 3. *MVVM* for design pattern, separation of logic, testability
+> 4. *Data Binding* to bind Java object data to the UI, or vice versa (user inputs data into POJO)
+> 5. *Constraint Layout* to reliably and efficiently create custom layouts with many child views
+> 6. *RecyclerView* to view data as a list
+> 7. *Postman* to play around with the RESTful API and check validity of networking calls
 
 ### Things to note
 ------

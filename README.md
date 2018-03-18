@@ -13,7 +13,9 @@
   network response handling for non-unique emails
   > ![error checking regifed](https://user-images.githubusercontent.com/14288932/37560085-31b9efd6-2a08-11e8-9fa9-a53ff215cf24.gif)
 
-* Viewing the list of users, create a user, and see the updated list with newly created user
+* Description of GIF below: 
+  Viewing the list of users, create a unique user with email `helloUNIQUE@gmail.com`, sucessful network response is Toasted, 
+  and see the updated list with newly created user
   > ![creating viewing gif](https://user-images.githubusercontent.com/14288932/37560073-d990b97a-2a07-11e8-9dea-bb88a7e47556.gif)
   
 ### Technology Used

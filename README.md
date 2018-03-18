@@ -9,8 +9,8 @@
 * use Android Studio to build & run
 
 ### Demo of Functionality
-* Handles errors of empty and/or duplicate emails with `@Bindable` and 
-  Network Response (non-unique email response)
+* `@Bindable` used to display errors of empty/invalid emails and
+  network response handling for non-unique emails
   > ![error checking regifed](https://user-images.githubusercontent.com/14288932/37560085-31b9efd6-2a08-11e8-9fa9-a53ff215cf24.gif)
 
 * Viewing the list of users, create a user, and see the updated list with newly created user

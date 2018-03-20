@@ -1,8 +1,9 @@
-### Functionality
+### Functionality with Restful API
 ------
- * Create a user with a RESTful API
- * View all current users with a RESTful API
-
+ * Create a user. Done by pressing the '+' `Image Button`
+ * View all current users in a list. Done by pressing the "crowd" `Image Button` 
+  *Update*: There should really be a progress dialog/fragment after "crowd" button is clicked, 
+   and before list fragment is displayed.
 
 ### Build instructions
 ------
